@@ -10,7 +10,7 @@
         }
     ],
     "autoload": {
-        "psr-4": { "ArtARTs36\\EmployeeInterfaces\\": "" },
+        "psr-4": { "ArtARTs36\\EmployeeInterfaces\\": "src" },
         "exclude-from-classmap": [
             "**/Tests/"
         ]
@@ -23,8 +23,7 @@
     "description": "Employee interfaces",
     "scripts": {
         "lint": [
-            "./vendor/bin/phpcs --standard=PSR2 Employee/",
-            "./vendor/bin/phpcs --standard=PSR2 WorkCondition/"
+            "./vendor/bin/phpcs --standard=PSR2 src/"
         ],
         "test": [
             "./vendor/bin/phpunit -v --coverage-text --colors=always --configuration phpunit.xml"
