@@ -1,0 +1,23 @@
+{
+    "name": "artem/employee-interfaces",
+    "type": "library",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "ArtARTs36",
+            "email": "temicska99@mail.ru"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "ArtARTs36\\EmployeeInterfaces\\": "" },
+        "exclude-from-classmap": [
+            "**/Tests/"
+        ]
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^8.0"
+    },
+    "description": "Employee interfaces"
+}
