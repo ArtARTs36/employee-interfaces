@@ -16,9 +16,26 @@ class EmployeeSettersAndGettersTraitTest extends TestCase
 {
     public function test(): void
     {
-        $workCondition = new WorkCondition();
+        $workCondition = new class() implements WorkConditionInterface {
+            use WorkConditionSettersAndGetters;
+        };
 
-        $employee = new Employee($workCondition);
+        $employee = new class($workCondition) implements EmployeeInterface {
+            use EmployeeSettersAndGettersTrait;
+
+
+            private $workCondition;
+
+            public function __construct(WorkConditionInterface $workCondition)
+            {
+                $this->workCondition = $workCondition;
+            }
+
+            public function getCurrentWorkCondition(): ?WorkConditionInterface
+            {
+                return $this->workCondition;
+            }
+        };
 
         //
 
@@ -26,27 +43,5 @@ class EmployeeSettersAndGettersTraitTest extends TestCase
 
         $employee->setName($name);
         self::assertEquals($name, $employee->getName());
-    }
-}
-
-class WorkCondition implements WorkConditionInterface
-{
-    use WorkConditionSettersAndGetters;
-}
-
-class Employee implements EmployeeInterface
-{
-    use EmployeeSettersAndGettersTrait;
-
-    private $workCondition;
-
-    public function __construct(WorkConditionInterface $workCondition)
-    {
-        $this->workCondition = $workCondition;
-    }
-
-    public function getCurrentWorkCondition(): ?WorkConditionInterface
-    {
-        return $this->workCondition;
     }
 }
