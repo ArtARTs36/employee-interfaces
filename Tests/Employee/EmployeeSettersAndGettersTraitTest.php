@@ -14,20 +14,25 @@ use PHPUnit\Framework\TestCase;
  */
 class EmployeeSettersAndGettersTraitTest extends TestCase
 {
+    /**
+     * @covers EmployeeSettersAndGettersTrait::
+     */
     public function test(): void
     {
         $workCondition = new class() implements WorkConditionInterface {
             use WorkConditionSettersAndGetters;
         };
 
-        $employee = new class($workCondition) implements EmployeeInterface {
-            use EmployeeSettersAndGettersTrait;
+        $id = rand(1, 99);
 
+        $employee = new class($id, $workCondition) implements EmployeeInterface {
+            use EmployeeSettersAndGettersTrait;
 
             private $workCondition;
 
-            public function __construct(WorkConditionInterface $workCondition)
+            public function __construct(int $id, WorkConditionInterface $workCondition)
             {
+                $this->id = $id;
                 $this->workCondition = $workCondition;
             }
 
@@ -39,9 +44,15 @@ class EmployeeSettersAndGettersTraitTest extends TestCase
 
         //
 
-        $name = "Artem";
+        list($name, $patronymic, $family) = ['Artem', 'Viktorovich', 'Ukrainskiy'];
 
-        $employee->setName($name);
+        $employee->setName($name)
+                 ->setPatronymic($patronymic)
+                 ->setFamily($family);
+
         self::assertEquals($name, $employee->getName());
+        self::assertEquals($patronymic, $employee->getPatronymic());
+        self::assertEquals($family, $employee->getFamily());
+        self::assertEquals($id, $employee->getId());
     }
 }
