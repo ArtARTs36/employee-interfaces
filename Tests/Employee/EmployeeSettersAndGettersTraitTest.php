@@ -14,9 +14,6 @@ use PHPUnit\Framework\TestCase;
  */
 class EmployeeSettersAndGettersTraitTest extends TestCase
 {
-    /**
-     * @covers EmployeeSettersAndGettersTrait::
-     */
     public function test(): void
     {
         $workCondition = new class() implements WorkConditionInterface {
@@ -40,11 +37,16 @@ class EmployeeSettersAndGettersTraitTest extends TestCase
             {
                 return $this->workCondition;
             }
+
+            public function getWorkConditions(): array
+            {
+                return [];
+            }
         };
 
         //
 
-        list($name, $patronymic, $family) = ['Artem', 'Viktorovich', 'Ukrainskiy'];
+        [$name, $patronymic, $family] = ['Artem', 'Viktorovich', 'Ukrainskiy'];
 
         $employee->setName($name)
                  ->setPatronymic($patronymic)

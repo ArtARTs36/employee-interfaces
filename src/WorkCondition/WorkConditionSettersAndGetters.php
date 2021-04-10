@@ -33,4 +33,9 @@ trait WorkConditionSettersAndGetters
     {
         return $this->employee;
     }
+
+    public function getTabNumber(): string
+    {
+        return $this->tabNumber ?? $this->tab_number;
+    }
 }

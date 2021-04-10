@@ -52,4 +52,9 @@ interface EmployeeInterface
      * @return WorkConditionInterface
      */
     public function getCurrentWorkCondition(): ?WorkConditionInterface;
+
+    /**
+     * @return array<WorkConditionInterface>
+     */
+    public function getWorkConditions(): array;
 }

@@ -10,18 +10,11 @@ use ArtARTs36\EmployeeInterfaces\Employee\EmployeeInterface;
  */
 interface WorkConditionInterface
 {
-    /**
-     * @return float
-     */
     public function getRate(): float;
 
-    /**
-     * @return string
-     */
     public function getPosition(): string;
 
-    /**
-     * @return EmployeeInterface
-     */
     public function getEmployee(): EmployeeInterface;
+
+    public function getTabNumber(): string;
 }
