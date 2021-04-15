@@ -72,4 +72,13 @@ trait EmployeeSettersAndGettersTrait
 
         return $this;
     }
+
+    public function getFullName(): string
+    {
+        return implode(' ', [
+            $this->getFamily(),
+            $this->getName(),
+            $this->getPatronymic(),
+        ]);
+    }
 }

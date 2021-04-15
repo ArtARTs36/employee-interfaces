@@ -38,4 +38,14 @@ trait WorkConditionSettersAndGetters
     {
         return $this->tabNumber ?? $this->tab_number;
     }
+
+    public function getHireDate(): \DateTimeInterface
+    {
+        return $this->hireDate ?? $this->hire_date;
+    }
+
+    public function getFireDate(): \DateTimeInterface
+    {
+        return $this->fireDate ?? $this->fire_date;
+    }
 }

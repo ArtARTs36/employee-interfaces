@@ -17,4 +17,8 @@ interface WorkConditionInterface
     public function getEmployee(): EmployeeInterface;
 
     public function getTabNumber(): string;
+
+    public function getHireDate(): \DateTimeInterface;
+
+    public function getFireDate(): \DateTimeInterface;
 }

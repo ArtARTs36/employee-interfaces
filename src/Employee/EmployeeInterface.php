@@ -57,4 +57,6 @@ interface EmployeeInterface
      * @return array<WorkConditionInterface>
      */
     public function getWorkConditions(): array;
+
+    public function getFullName(): string;
 }
