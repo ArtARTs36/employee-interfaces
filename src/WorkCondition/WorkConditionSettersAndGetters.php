@@ -48,4 +48,9 @@ trait WorkConditionSettersAndGetters
     {
         return $this->fireDate ?? $this->fire_date;
     }
+
+    public function getApplyDate(): \DateTimeInterface
+    {
+        return $this->applyDate ?? $this->apply_date;
+    }
 }

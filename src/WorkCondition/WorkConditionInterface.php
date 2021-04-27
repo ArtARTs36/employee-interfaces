@@ -21,4 +21,6 @@ interface WorkConditionInterface
     public function getHireDate(): \DateTimeInterface;
 
     public function getFireDate(): \DateTimeInterface;
+
+    public function getApplyDate(): \DateTimeInterface;
 }
